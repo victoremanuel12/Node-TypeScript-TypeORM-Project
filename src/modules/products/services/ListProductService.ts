@@ -9,3 +9,5 @@ class ListProductService {
     return products;
   }
 }
+
+export default ListProductService;

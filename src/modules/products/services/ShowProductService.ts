@@ -13,3 +13,4 @@ class ShowProductService {
     return product;
   }
 }
+export default ShowProductService

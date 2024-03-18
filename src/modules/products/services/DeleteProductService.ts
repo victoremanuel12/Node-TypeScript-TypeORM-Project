@@ -7,8 +7,8 @@ class DeleteProductService {
   public async execute({ id }: IDeleteProduct): Promise<void> {
     const productRepository = getCustomRepository(ProductRepository);
     const product = await productRepository.findOne(id);
-    if(!product)
-      throw  new AppError(`Product not found`, 404);
+    if (!product) throw new AppError(`Product not found`, 404);
     productRepository.delete(product);
   }
 }
+export default DeleteProductService;
