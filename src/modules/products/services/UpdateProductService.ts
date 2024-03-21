@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
-import Product from '../typeorm/entites/Product';
+import Product from '../typeorm/entities/Product';
 import AppError from '@shared/errors/appError';
 import { IUpdateProduct } from '../interfaces/IUpdateProductService';
 

@@ -3,16 +3,17 @@ import { Response, Request } from 'express';
 import ShowProductService from '../services/ShowProductService';
 import CreateProductService from '../services/CreateProductService';
 import UpdateProductService from '../services/UpdateProductService';
-import Product from '../typeorm/entites/Product';
+import Product from '../typeorm/entities/Product';
 import DeleteProductService from '../services/DeleteProductService';
 
 export default class ProductController {
   public async all(
-    resquest: Request,
+     resquest: Request,
     response: Response,
   ): Promise<Response<Product>> {
     const listProductSerivce = await new ListProductService();
     const products = await listProductSerivce.execute();
+    console.log(products)
     return response.json(products);
   }
   public async prodctById(
@@ -21,7 +22,7 @@ export default class ProductController {
   ): Promise<Response<Product>> {
     const { id } = resquest.params;
     const showProductsService = await new ShowProductService();
-    const product = showProductsService.execute({ id });
+    const product = await showProductsService.execute({ id });
     return response.json(product);
   }
   public async create(
@@ -30,7 +31,7 @@ export default class ProductController {
   ): Promise<Response<Product>> {
     const { name, price, quantity } = resquest.body;
     const createProductService = new CreateProductService();
-    const product = createProductService.execute({ name, price, quantity });
+    const product = await  createProductService.execute({ name, price, quantity });
     return response.json(product);
   }
   public async update(
@@ -53,7 +54,7 @@ export default class ProductController {
   ): Promise<Response<Product>> {
     const { id} = resquest.params;
     const deleteProductService = new DeleteProductService();
-    const product = deleteProductService.execute({id});
+    const product = await deleteProductService.execute({id});
     return response.json(product);
   }
 }

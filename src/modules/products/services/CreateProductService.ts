@@ -2,7 +2,7 @@ import { getCustomRepository } from "typeorm";
 import { IRequestCreateProduct } from "../interfaces/IRequestCreateProduct";
 import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
 import AppError from "@shared/errors/appError";
-import Product from "../typeorm/entites/Product";
+import Product from "../typeorm/entities/Product";
 
 class CreateProductService
  {

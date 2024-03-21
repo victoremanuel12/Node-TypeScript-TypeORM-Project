@@ -8,7 +8,7 @@ class DeleteProductService {
     const productRepository = getCustomRepository(ProductRepository);
     const product = await productRepository.findOne(id);
     if (!product) throw new AppError(`Product not found`, 404);
-    productRepository.delete(product);
+    productRepository.remove(product);
   }
 }
 export default DeleteProductService;
