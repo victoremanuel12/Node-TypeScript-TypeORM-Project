@@ -14,9 +14,11 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
     @Column()
     password: string;
 
-    @Column()
+    @Column({
+      nullable: true,
+     })
     avatar: string;
-
+    isNullable: true;
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     created_at: Date;
 
