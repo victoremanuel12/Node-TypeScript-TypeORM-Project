@@ -9,7 +9,7 @@ interface IUpdateUser{
   password: string;
 }
 
-class UpdateProductService {
+class UpdateUserService {
   public async execute({
     id,
     name,
@@ -18,10 +18,10 @@ class UpdateProductService {
   }: IUpdateUser): Promise<User> {
     const userRepository = getCustomRepository(UsersRepository);
     const user : User | undefined = await  userRepository.findOne(id);
-    const productAlreadyExists = await userRepository.findByName(name);
+    const userAlreadyExists = await userRepository.findByName(name);
     if (!user) throw new AppError(`Product not found`, 404);
 
-    if (productAlreadyExists) throw new AppError('Product already exists', 400);
+    if (userAlreadyExists) throw new AppError('User with the same name already exists', 400);
     user.name = name;
     user.email = email;
     user.password = password;
@@ -29,4 +29,4 @@ class UpdateProductService {
     return user;
   }
 }
-export default  UpdateProductService;
+export default  UpdateUserService;

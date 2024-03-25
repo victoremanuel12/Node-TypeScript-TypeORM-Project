@@ -26,6 +26,7 @@ productsRouter.post(
   }),
   productsController.create,
 );
+
 productsRouter.put(
   '/:id',
   celebrate({

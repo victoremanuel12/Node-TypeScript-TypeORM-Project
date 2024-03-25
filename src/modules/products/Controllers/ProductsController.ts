@@ -13,7 +13,6 @@ export default class ProductController {
   ): Promise<Response<Product>> {
     const listProductSerivce = await new ListProductService();
     const products = await listProductSerivce.execute();
-    console.log(products)
     return response.json(products);
   }
   public async prodctById(

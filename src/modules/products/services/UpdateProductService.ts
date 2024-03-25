@@ -10,13 +10,13 @@ class UpdateProductService {
     price,
     name,
     quantity,
-  }: IUpdateProduct): Promise<Product > {
+  }: IUpdateProduct): Promise<Product> {
     const productRepository = getCustomRepository(ProductRepository);
     const product = await  productRepository.findOne(id);
     const productAlreadyExists = await productRepository.findByName(name);
     if (!product) throw new AppError(`Product not found`, 404);
 
-    if (productAlreadyExists) throw new AppError('Product already exists', 400);
+    if (productAlreadyExists) throw new AppError('Product name already exists', 400);
     product.name = name;
     product.price = price;
     product.quantity = quantity;

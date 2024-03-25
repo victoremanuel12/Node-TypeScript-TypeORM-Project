@@ -5,6 +5,7 @@ import User from '../typeorm/entities/User';
 import { Response, Request } from 'express';
 import DeleteUsersService from '../services/DeleteUsersService';
 import ShowUserByIdService from '../services/ShowUserById';
+import UpdateUserService from '../services/UpdateUsersService';
 
 export default class UserController {
   public async all(
@@ -39,7 +40,7 @@ export default class UserController {
     response: Response,
   ): Promise<Response<User>> {
     const { id, name, email, password } = request.body;
-    const updateProductsService = new UpdateProductService();
+    const updateProductsService =  new UpdateUserService();
     const product = await updateProductsService.execute({
       id,
       name,
