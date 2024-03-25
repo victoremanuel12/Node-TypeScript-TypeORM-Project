@@ -1,5 +1,7 @@
 import productsRouter from '@modules/products/routes/products.routes';
-import UserRouter from '@modules/users/routes/UserRouter';
+
+import sessionRouter from '@modules/users/routes/session.routes';
+import userRouter from '@modules/users/routes/userRouter';
 import { Router, Response } from 'express';
 
 
@@ -9,5 +11,7 @@ routes.get('/', (response: Response) => {
   response.send('Hello World!🎁');
 });
 routes.use('/products',productsRouter);
-routes.use('/users',UserRouter);
+routes.use('/users',userRouter);
+routes.use('/sessions',sessionRouter);
+
 export default routes;

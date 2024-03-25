@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import { Joi, Segments, celebrate } from 'celebrate';
 import UserController from '../Controller/UserController';
-const productsRouter = Router();
+const userRouter = Router();
 
 const userController = new UserController();
 
-productsRouter.get('/', userController.all);
-productsRouter.get(
+userRouter.get('/', userController.all);
+userRouter.get(
   '/:id',
   celebrate({
     [Segments.PARAMS]: {
@@ -16,7 +16,7 @@ productsRouter.get(
   userController.userById,
 );
 
-productsRouter.post(
+userRouter.post(
   '/',
   celebrate({
     [Segments.BODY]: {
@@ -27,7 +27,7 @@ productsRouter.post(
   }),
   userController.create,
 );
-productsRouter.put(
+userRouter.put(
   '/:id',
   celebrate({
     [Segments.BODY]: {
@@ -42,7 +42,7 @@ productsRouter.put(
   }),
   userController.update,
 );
-productsRouter.delete(
+userRouter.delete(
   '/:id',
   celebrate({
     [Segments.PARAMS]: {
@@ -52,4 +52,4 @@ productsRouter.delete(
   userController.delete,
 );
 
-export default productsRouter;
+export default userRouter;
