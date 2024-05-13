@@ -11,8 +11,8 @@ export default class UserController {
     resquest: Request,
     response: Response,
   ): Promise<Response<Array<User>>> {
-    const listProductSerivce = await new ListUserService();
-    const users = await listProductSerivce.execute();
+    const listuserSerivce = await new ListUserService();
+    const users = await listuserSerivce.execute();
     return response.json(users);
   }
   public async userById(
@@ -20,8 +20,8 @@ export default class UserController {
     response: Response,
   ): Promise<Response<User>> {
     const { id } = resquest.params;
-    const showProductsService = await new ShowUserByIdService();
-    const product = await showProductsService.execute({ id });
+    const showUserByIdService = await new ShowUserByIdService();
+    const product = await showUserByIdService.execute({ id });
     return response.json(product);
   }
 
@@ -39,8 +39,8 @@ export default class UserController {
     response: Response,
   ): Promise<Response<User>> {
     const { id, name, email, password } = request.body;
-    const updateProductsService =  new UpdateUserService();
-    const product = await updateProductsService.execute({
+    const updateUserService =  new UpdateUserService();
+    const product = await updateUserService.execute({
       id,
       name,
       email,
@@ -53,8 +53,8 @@ export default class UserController {
     response: Response,
   ): Promise<Response<User>> {
     const { id } = resquest.params;
-    const deleteProductService = new DeleteUsersService();
-    const product = await deleteProductService.execute({ id });
+    const deleteUsersService = new DeleteUsersService();
+    const product = await deleteUsersService.execute({ id });
     return response.json(product);
   }
 }
