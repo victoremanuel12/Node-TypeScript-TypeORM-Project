@@ -6,13 +6,13 @@ import { errors } from 'celebrate';
 import routes from './routes';
 import AppError from '@shared/errors/appError';
 import '@shared/typeorm';
-
+import uploadsConfig from '@config/uploads';
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
-
+app.use('/files', express.static(uploadsConfig.directory))
 app.use(routes);
 app.use(errors());
 // middware de tratameto de erros, não sendo necessario utilizar try catch sempre!
