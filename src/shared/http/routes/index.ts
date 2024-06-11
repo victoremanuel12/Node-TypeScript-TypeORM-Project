@@ -1,5 +1,5 @@
 import productsRouter from '@modules/products/routes/products.routes';
-import userRouter from '@modules/users/routes/UserRouter';
+import userRouter from '@modules/users/routes/userRouter';
 import passswordRouter from '@modules/users/routes/password.routes';
 
 import sessionRouter from '@modules/users/routes/session.routes';

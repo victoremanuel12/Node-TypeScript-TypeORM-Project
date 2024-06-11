@@ -10,6 +10,6 @@ export default class ForgotPasswordController {
     const { email } = request.body;
     const sendForgotPasswordEmailService = new SendForgotPasswordEmailService();
     await sendForgotPasswordEmailService.execute({ email });
-    return response.sendStatus(204).json();
+    return response.status(204).json();
   }
 }
