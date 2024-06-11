@@ -1,6 +1,5 @@
 import CreateUserService from '../services/CreateUserService';
 import ListUserService from '../services/ListUsersService';
-import UpdateProductService from '../services/UpdateUsersService';
 import User from '../typeorm/entities/User';
 import { Response, Request } from 'express';
 import DeleteUsersService from '../services/DeleteUsersService';
