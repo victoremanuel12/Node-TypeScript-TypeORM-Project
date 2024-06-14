@@ -6,8 +6,9 @@ interface IParseMailTemplate {
   template: string;
   variebles: ITamplateVarieble;
 }
- class HandlebarsMailTemplate {
+ export default class HandlebarsMailTemplate {
   public async parse({template , variebles} : IParseMailTemplate): Promise<string>{
-    return ''
+    const parseTemplate = handlebars.compile(template);
+    return parseTemplate(variebles);
   }
 }
