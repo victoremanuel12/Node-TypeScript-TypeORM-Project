@@ -11,7 +11,7 @@ interface ISendMail {
   templateData: IParseMailTemplate;
 }
 interface IParseMailTemplate {
-  template: string;
+  file: string;
   variebles: ITamplateVarieble;
 }
 interface ITamplateVarieble {
